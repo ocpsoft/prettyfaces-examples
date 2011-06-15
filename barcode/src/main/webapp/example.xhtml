@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pretty="http://ocpsoft.com/prettyfaces">
+
+	<h:body>
+		<pretty:urlbuffer var="url" mappingId="barcode">
+			<f:param value="1234567890" />
+		</pretty:urlbuffer>
+		<img src="#{url}" alt="barcode" />
+	</h:body>
+
+</html>

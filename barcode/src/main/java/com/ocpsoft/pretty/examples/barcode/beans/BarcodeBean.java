@@ -16,8 +16,8 @@ import com.ocpsoft.pretty.faces.annotation.URLMapping;
 
 @Named
 @RequestScoped
-@URLMapping(id = "barcode", viewId = "/empty.jsf",
-            pattern = "/barcode/#{ /[0-9]+/ barcodeBean.value }.png")
+@URLMapping(id = "barcode", viewId = "/null.jsf",
+            pattern = "/#{ /[0-9]+/ barcodeBean.value }.png")
 public class BarcodeBean
 {
    private String value;
