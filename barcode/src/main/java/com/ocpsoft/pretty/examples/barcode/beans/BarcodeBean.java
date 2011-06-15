@@ -3,7 +3,6 @@ package com.ocpsoft.pretty.examples.barcode.beans;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
@@ -22,12 +21,6 @@ import com.ocpsoft.pretty.faces.annotation.URLMapping;
 public class BarcodeBean
 {
    private String value;
-
-   @PostConstruct
-   public void init()
-   {
-      System.out.println("Created instance of BarcodeBean");
-   }
 
    @URLAction
    public void render() throws IOException
