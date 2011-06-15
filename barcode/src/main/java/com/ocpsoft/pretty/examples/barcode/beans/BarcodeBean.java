@@ -32,7 +32,6 @@ public class BarcodeBean
    @URLAction
    public void render() throws IOException
    {
-
       // get HttpServletResponse
       FacesContext context = FacesContext.getCurrentInstance();
       HttpServletResponse response =
