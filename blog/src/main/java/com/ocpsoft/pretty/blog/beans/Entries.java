@@ -12,9 +12,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 
 import org.jboss.forge.persistence.PersistenceUtil;
-import org.jboss.seam.international.status.Messages;
 import org.jboss.seam.transaction.Transactional;
 
 import com.ocpsoft.pretty.blog.domain.Author;
@@ -34,21 +34,19 @@ public class Entries extends PersistenceUtil
    private Content content = new Content();
 
    @Inject
-   private Messages messages;
-
-   @Inject
    private EntityManager manager;
 
    private List<Content> entries;
+
+   private Content singleContent;
+
+   @Inject
+   private ParamsBean paramsBean;
 
    @Override
    protected EntityManager getEntityManager()
    {
       return manager;
-   }
-
-   public Entries()
-   {
    }
 
    public String newEntry(final Author author, final Content content)
@@ -73,10 +71,19 @@ public class Entries extends PersistenceUtil
       return entries;
    }
 
-   public Content getSingleContent(final String title)
+   public Content getSingleContent()
    {
-      Content result = findUniqueByNamedQuery("content.byTitle", title);
-      return result;
+      try
+      {
+         if (singleContent == null)
+            singleContent = findUniqueByNamedQuery("content.byTitle", paramsBean.getTitle());
+      }
+      catch (NoResultException e)
+      {
+         return new Content();
+      }
+
+      return singleContent;
    }
 
    public Content getContent()

@@ -15,20 +15,13 @@
         </ui:define>
 
         <ui:define name="content">
-        	<h1>Enter Address:</h1>
-        	<h:form id="form">
-       			
-        		Title:
-        		<h:inputText id="city" value="#{submitBean.city}" /><br/>
-        		Author:
-        		<h:inputText id="state" value="#{submitBean.state}" /><br/>
-        		Zip:
-        		<h:inputText id="zip" value="#{submitBean.zip}" /><br/>
-        		<p/>
-        		<h:commandButton id="submit" value="Submit" action="#{submitBean.submitPost}" />
-        		
-       			<s:validateForm validatorId="postValidator" />
-        	</h:form>
+        	<h1>Technologies that made this example possible:</h1>
+        	<ul>
+        		<li><a href="http://seamframework.org/Seam3">Seam 3</a></li>
+        		<li><a href="http://ocpsoft.com/prettyfaces/">OCPSoft PrettyFaces</a></li>
+        		<li><a href="http://ocpsoft.com/prettytime/">OCPSoft PrettyTime</a></li>
+        		<li><a href="http://bit.ly/seamforge">Seam Forge</a></li>
+        	</ul>
         </ui:define>
 
     </ui:composition>

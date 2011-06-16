@@ -8,7 +8,7 @@
       xmlns:t="http://java.sun.com/jsf/composite/com-ocpsoft-templates/corporate/components">
 
 	<f:metadata>
-		<f:viewParam name="post" value="#{post}" />
+		<f:viewParam name="post" value="#{paramsBean.title}" />
 	</f:metadata>
 
     <ui:composition template="/resources/blog/template.xhtml">
@@ -18,26 +18,40 @@
         </ui:define>
 
         <ui:define name="content">
-            <b:post post="#{entries.getSingleContent(post)}" single="true"/>
             
-            <p/>
-            <h4>Comments:</h4>
-            <ul>
-            <ui:repeat var="c" value="#{comments.getAll(entries.getSingleContent(post))}">
-            	<li>#{c.text}</li>
-            </ui:repeat>
-            </ul>
+            <h:panelGroup rendered="#{not empty entries.singleContent.title}">
+            	<b:post post="#{entries.singleContent}" single="true"/>
+            	
+	            <br/><br/><br/> 
+	            
+	            <h:panelGroup rendered="#{not empty comments.all}">
+		            <h4>Comments:</h4>
+		            
+		            <ul>
+		            <ui:repeat var="c" value="#{comments.all}">
+		            	<li style="margin-bottom: 10px;"><h:outputLink value="#{c.url}">#{c.name}</h:outputLink> - #{c.text}<br/><span style="opacity: 0.5;">Posted <h:outputText value="#{c.postedOn}">
+		            		<f:converter converterId="com.ocpsoft.PrettyTimeConverter"/>
+		            	</h:outputText></span></li>
+		            </ui:repeat>
+		            </ul>
+	            </h:panelGroup>
+            </h:panelGroup>
+            
+            <h3>Add a Comment:</h3>
             <h:form>
-            	<f:validateBean>
-	            	Name*: <h:inputText value="#{comments.comment.name}" /><br/>
-	            	Email*: <h:inputText value="#{comments.comment.email}" /><br/>
-	            	Website: <h:inputText value="#{comments.comment.url}" /><br/>
-	            	
-	            	<h:inputTextarea value="#{comments.comment.text}"/>
-	            	
-	            	<br/>(*=required)<br/>
-	            	<h:commandButton value="submit" action="#{comments.addComment(entries.getSingleContent(post), comments.comment)}" />
-            	</f:validateBean>
+            	Name*:<br/><h:inputText value="#{comments.comment.name}" required="true">
+            	</h:inputText><br/>
+            	Email*:<br/><h:inputText value="#{comments.comment.email}" required="true">
+            	</h:inputText><br/>
+            	Website:<br/><h:inputText value="#{comments.comment.url}">
+            	</h:inputText><br/>
+            	<br/>
+            	<h:inputTextarea value="#{comments.comment.text}" required="true"/>
+            	
+            	<br/>
+            	<h:commandButton value="submit" action="#{comments.addComment(comments.comment)}">
+            		<f:param name="post" value="#{paramsBean.title}" />
+            	</h:commandButton>
             </h:form>
         </ui:define>
 

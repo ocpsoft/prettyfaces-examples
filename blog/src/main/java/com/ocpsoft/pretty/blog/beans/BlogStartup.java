@@ -21,13 +21,11 @@
  */
 package com.ocpsoft.pretty.blog.beans;
 
-import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.servlet.ServletContext;
 
 import org.jboss.forge.persistence.PersistenceUtil;
-import org.jboss.seam.servlet.event.Initialized;
 import org.jboss.seam.transaction.Transactional;
 
 import com.ocpsoft.pretty.blog.domain.Author;
@@ -47,7 +45,7 @@ public class BlogStartup extends PersistenceUtil
    @Inject
    private EntityManager manager;
 
-   public void init(@Observes @Initialized final ServletContext event)
+   public void init(final ServletContext event)
    {
       Author author = new Author("Lincoln Baxter, III");
       Content post = new Content();

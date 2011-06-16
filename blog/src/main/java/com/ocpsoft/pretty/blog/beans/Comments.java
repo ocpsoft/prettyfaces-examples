@@ -5,6 +5,7 @@
 package com.ocpsoft.pretty.blog.beans;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -34,10 +35,13 @@ public class Comments extends PersistenceUtil
    private Comment comment = new Comment();
 
    @Inject
-   private Messages messages;
+   private EntityManager manager;
 
    @Inject
-   private EntityManager manager;
+   private Entries entries;
+
+   @Inject
+   private Messages messages;
 
    @Override
    protected EntityManager getEntityManager()
@@ -45,25 +49,21 @@ public class Comments extends PersistenceUtil
       return manager;
    }
 
-   public Comments()
+   public String addComment(final Comment comment)
    {
-   }
-
-   public String addComment(final Content content, final Comment comment)
-   {
+      Content content = entries.getSingleContent();
       comment.setContent(content);
+      comment.setPostedOn(new Date());
       save(comment);
-      content.getComments().add(comment);
-      save(content);
 
       messages.add(messages.info(new BundleKey("com.ocpsoft.pretty.blog.messages", "commentAdded"), content.getTitle()));
 
       return "/single.xhtml?faces-redirect=true&post=" + content.getTitle();
    }
 
-   public List<Comment> getAll(final Content content)
+   public List<Comment> getAll()
    {
-      return new ArrayList<Comment>(content.getComments());
+      return new ArrayList<Comment>(entries.getSingleContent().getComments());
    }
 
    public Comment getComment()

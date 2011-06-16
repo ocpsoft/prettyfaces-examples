@@ -3,8 +3,7 @@
    xsi:schemaLocation="http://ocpsoft.com/prettyfaces/2.0.4
 http://ocpsoft.com/xml/ns/prettyfaces/ocpsoft-pretty-faces-2.0.4.xsd">
 
-   <rewrite match="(?i)^(.*);jsessionid=\w+(.*)" substitute="$1$2"
-      redirect="301" />
+<!-- 
 
    <url-mapping id="home">
       <pattern value="/" />
@@ -35,5 +34,7 @@ http://ocpsoft.com/xml/ns/prettyfaces/ocpsoft-pretty-faces-2.0.4.xsd">
       <pattern value="/credits/" />
       <view-id>/faces/credits.xhtml</view-id>
    </url-mapping>
+   
+ -->
 
 </pretty-config>

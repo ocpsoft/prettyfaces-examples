@@ -23,9 +23,9 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:cc="http://java.sun.com/jsf/composite">
 
-    <cc:interface>
+    <cc:interface> 
         <cc:attribute name="active" type="boolean" default="false" />
-        <cc:attribute name="href" default="/#"/>
+        <cc:attribute name="href"/>
         <cc:attribute name="outcome" />
         <cc:attribute name="title" default="Tab" />
         <cc:insertChildren />
@@ -33,7 +33,10 @@
 
     <cc:implementation>
         <li>
-            <h:outputLink rendered="#{empty cc.attrs.outcome}" styleClass="#{cc.attrs.active == true ? 'active' : 'inactive' }" value="#{cc.attrs.href}">#{cc.attrs.title}</h:outputLink>
+        	<h:panelGroup rendered="#{empty cc.attrs.outcome and empty cc.attrs.href}">
+        		<a href="#" class="#{cc.attrs.active == true ? 'active' : 'inactive' }">#{cc.attrs.title}</a>
+        	</h:panelGroup>
+            <h:outputLink rendered="#{empty cc.attrs.outcome and !empty cc.attrs.href}" styleClass="#{cc.attrs.active == true ? 'active' : 'inactive' }" value="#{cc.attrs.href}">#{cc.attrs.title}</h:outputLink>
             <h:link rendered="#{!empty cc.attrs.outcome}" styleClass="#{cc.attrs.active == true ? 'active' : 'inactive' }" outcome="#{cc.attrs.outcome}">#{cc.attrs.title}</h:link>
             <cc:renderFacet name="link" />
             <cc:insertChildren />

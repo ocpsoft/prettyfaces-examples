@@ -1,11 +1,15 @@
 package com.ocpsoft.pretty.blog.domain;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
 @Entity
@@ -102,6 +106,20 @@ public class Comment implements java.io.Serializable
    public void setContent(final Content content)
    {
       this.content = content;
+   }
+
+   @Temporal(TemporalType.TIMESTAMP)
+   @Column(nullable = false)
+   private Date postedOn;
+
+   public void setPostedOn(Date postedOn)
+   {
+      this.postedOn = postedOn;
+   }
+
+   public Date getPostedOn()
+   {
+      return postedOn;
    }
 
    @Override
