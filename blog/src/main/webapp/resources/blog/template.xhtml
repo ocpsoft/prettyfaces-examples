@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:t="http://java.sun.com/jsf/composite/com-ocpsoft-templates/corporate/components">
+
+    <ui:composition template="/resources/com-ocpsoft-templates/corporate/corporate-index.xhtml">
+        <ui:param name="siteUrl" value="pretty:home" />
+        <ui:param name="siteName" value="PrettyFaces Blog" />
+        <ui:param name="siteMotto" value="There's no reason why Java EE can't be Pretty!" />
+
+        <ui:param name="pageTitle" value="PrettyFaces Blog ${subtitle}" />
+
+	
+	    <ui:define name="topnav">
+	        <t:navItem title="Home" active="true" outcome="/index.xhtml"/>
+	        <t:navItem title="Blog">
+	            <t:subNav>
+	                <t:navItem title="New Post" outcome="/submit.xhtml"/>
+	                <t:navItem title="Authors" outcome="/authors.xhtml" />
+	                <t:navItem title="Credits" outcome="/credits.xhtml"/>
+	            </t:subNav>
+	        </t:navItem>
+	        <t:navItem title="Contact Us" href="http://ocpsoft.com/support/"/>
+	        <t:navItem title="About" href="http://ocpsoft.com"/>
+	    </ui:define>
+    
+	
+    </ui:composition>
+</html>
+

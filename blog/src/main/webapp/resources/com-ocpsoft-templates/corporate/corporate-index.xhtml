@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:t="http://java.sun.com/jsf/composite/com-ocpsoft-templates/corporate/components"
+      xml:lang="EN" lang="EN" dir="ltr">
+
+    <ui:composition template="corporate-parent.xhtml">
+
+        <ui:define name="topnav">
+            <t:navItem title="Home" active="true"/>
+            <t:navItem title="{topnav}">
+                <t:subNav>
+                    <t:navItem title="PrettyFaces" />
+                    <t:navItem title="PrettyTime" />
+                    <t:navItem title="ScrumShark" />
+                </t:subNav>
+            </t:navItem>
+            <t:navItem title="Contact Us"/>
+            <t:navItem title="About"/>
+        </ui:define>
+
+        <ui:define name="subheader">{subheader}
+            <t:gallery defaultImage="#{resource['com-ocpsoft-templates:corporate/images/demo/gallery_default.gif']}">
+                <t:galleryItem title="Services" linkImage="#{resource['com-ocpsoft-templates:corporate/images/demo/290x105.gif']}"
+                               image="#{resource['com-ocpsoft-templates:corporate/images/demo/gallery_1.gif']}" />
+                <t:galleryItem title="Services" linkImage="#{resource['com-ocpsoft-templates:corporate/images/demo/290x105.gif']}"
+                               image="#{resource['com-ocpsoft-templates:corporate/images/demo/gallery_2.gif']}" />
+                <t:galleryItem title="Services" linkImage="#{resource['com-ocpsoft-templates:corporate/images/demo/290x105.gif']}"
+                               image="#{resource['com-ocpsoft-templates:corporate/images/demo/gallery_3.gif']}" />
+            </t:gallery>
+        </ui:define>
+
+        <ui:define name="search">
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Site Search</legend>
+                    <input tabindex="2" type="submit" name="go" id="go" value="GO"/>
+                    <input tabindex="1" type="text" value="Search the site&hellip;"  onfocus="this.value=(this.value=='Search the site&hellip;')? '' : this.value ;" />
+                </fieldset>
+            </form>{search}
+        </ui:define>
+
+        <ui:define name="container">
+            <div id="content">
+                <ui:insert name="content">
+                    <h1>{content}</h1>
+                    <p> &lt;h1&gt; to &lt;h6&gt; - Headline Colour and Size Are All The Same</p>
+                    <t:twoColumnContent>
+                        <f:facet name="left">
+                            <t:image url="#{resource['com-ocpsoft-templates:corporate/images/demo/286x100.gif']}" />
+                            <h2>Indonectetus facilis leo nibh</h2>
+                            <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque.</p>
+                            <p>congue magnis vestibulum quismodo nulla et feugiat. Adipisciniapellentum leo ut consequam ris felit elit id nibh sociis malesuada.</p>
+                            <t:more />
+                        </f:facet>
+                        <f:facet name="right">
+                            <t:image url="#{resource['com-ocpsoft-templates:corporate/images/demo/286x100.gif']}" />
+                            <h2>Indonectetus facilis leo nibh</h2>
+                            <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna.</p>
+                            <p>Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo nulla et feugiat. Adipisciniapellentum leo ut consequam ris felit elit id nibh sociis malesuada.</p>
+                            <t:more />
+                        </f:facet>
+                    </t:twoColumnContent>
+                    <p>Odiointesque at quat nam nec quis ut feugiat consequet orci liberos. Tempertincidunt sed maecenas eros elerit nullam vest rhoncus diam consequat amet. Diamdisse ligula tincidunt a orci proin auctor lacilis lacilis met vitae.</p>
+                </ui:insert>
+            </div>
+            <div id="column">
+                <ui:insert name="side">
+                    <t:sidenavFeature>
+                        <h2>{side}</h2>
+                        <t:image url="#{resource['com-ocpsoft-templates:corporate/images/demo/240x90.gif']}" />
+                        <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo nulla et feugiat. Adipisciniapellentum leo ut consequam ris felit elit id nibh sociis malesuada.</p>
+
+                        <t:more />
+                    </t:sidenavFeature>
+                    <t:sidenavItem>
+                        <t:image url="#{resource['com-ocpsoft-templates:corporate/images/demo/240x90.gif']}" />
+                        <p>Odiointesque at quat nam nec quis ut feugiat consequet orci liberos. Tempertincidunt sed maecenas eros elerit nullam vest rhoncus diam consequat amet.</p>
+
+                        <t:more href="http://www.google.com" />
+                    </t:sidenavItem>
+                </ui:insert>
+            </div>
+        </ui:define>
+
+        <ui:define name="footer">
+            <div id="contactform">
+                <h2>Why Not Contact Us Today !</h2>
+                <form action="#" method="post">
+                    <fieldset>
+                        <legend>Contact Form</legend>
+                        <label for="fullname">Name:
+                            <input id="fullname" name="fullname" type="text" value="" />
+                        </label>
+                        <label for="emailaddress" class="margin">Email:
+                            <input id="emailaddress" name="emailaddress" type="text" value="" />
+                        </label>
+                        <label for="phone">Telephone:
+                            <input id="phone" name="phone" type="text" value="" />
+                        </label>
+                        <label for="subject" class="margin">Subject:
+                            <input id="subject" name="subject" type="text" value="" />
+                        </label>
+                        <label for="message">Message:<br />
+                            <textarea id="message" name="message" cols="40" rows="4"></textarea>
+                        </label>
+                        <p>
+                            <input id="submitform" name="submitform" type="submit" value="Submit" />
+                            &nbsp;
+                            <input id="resetform" name="resetform" type="reset" value="Reset" />
+                        </p>
+                    </fieldset>
+                </form>
+            </div>
+            <!-- End Contact Form -->
+
+            <div id="compdetails">
+                <div id="officialdetails">
+                    <h2>Company Information !</h2>
+                    <ul>
+                        <li>Copyright &copy; 2009 - All Rights Reserved</li>
+                        <li>Company Name Ltd</li>
+                        <li>Registered in England &amp; Wales</li>
+                        <li>Company No. xxxxxxx</li>
+                        <li class="last">VAT No. xxxxxxxxx</li>
+                    </ul>
+                    <h2>Stay in The Know !</h2>
+                    <p><a href="#">Get Our E-Newsletter</a> | <a href="#">Grab The RSS Feed</a></p>
+                </div>
+
+                <div id="contactdetails">
+                    <h2>Our Contact Details !</h2>
+                    <ul>
+                        <li>Company Name</li>
+                        <li>Street Name &amp; Number</li>
+                        <li>Town</li>
+                        <li>Postcode/Zip</li>
+                        <li>Tel: xxxxx xxxxxxxxxx</li>
+                        <li>Fax: xxxxx xxxxxxxxxx</li>
+                        <li>Email: info@domain.com</li>
+                        <li class="last">LinkedIn: <a href="#">Company Profile</a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <!-- End Company Details -->
+
+        </ui:define>
+
+        <ui:define name="footernav">
+            <t:navItem title="Online Privacy Policy" />
+            <t:navItem title="Terms of Use" />
+            <t:navItem title="Permissions &amp; Trademarks" />
+            <t:navItem title="Product License Agreements" />
+            <t:navItem title="Online Privacy Policy" />
+        </ui:define>
+    </ui:composition>
+</html>

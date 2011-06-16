@@ -16,6 +16,7 @@
   
   <modules>
     <module>barcode</module>
+    <module>blog</module>
   </modules>
   
   <build>

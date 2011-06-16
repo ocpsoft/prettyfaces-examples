@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:t="http://java.sun.com/jsf/composite/com-ocpsoft-templates/corporate/components"
+      xml:lang="EN" lang="EN" dir="ltr">
+
+    <h:head>
+        <title>#{empty pageTitle ? '{#pageTitle}' : pageTitle}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <meta http-equiv="imagetoolbar" content="no" />
+        <link rel="icon" href="#{resource['com-ocpsoft-templates:corporate/images/favicon.ico']}" type="image/ico" />
+        <link rel="stylesheet" href="#{resource['com-ocpsoft-templates:corporate/styles/layout.css']}" type="text/css" />
+    </h:head>
+
+    <h:body id="top">
+        <div class="wrapper col1">
+            <div id="head">
+                <h1><h:link outcome="#{empty siteUrl ? '#[siteUrl]' : siteUrl}" includeViewParams="true">
+                	<h:outputText value="#{empty siteName ? '{#siteName}' : siteName}" />
+                </h:link></h1>
+                <p>#{empty siteMotto ? '{#siteMotto}' : siteMotto}</p>
+                <div id="topnav">
+                    <ul>
+                        <ui:insert name="topnav">{topnav}</ui:insert>
+                    </ul>
+                </div>
+                <div id="search">
+                    <ui:insert name="search">{search}</ui:insert>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper col2">
+            <ui:insert name="subheader">{subheader}</ui:insert>
+        </div>
+        <div class="wrapper col4">
+            <div id="container">
+                <ui:insert name="container">{container}</ui:insert>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="wrapper col5">
+            <div id="footer">
+                <ui:insert name="footer">{footer}</ui:insert>
+
+                <div id="copyright">
+                    <ul>
+                        <ui:insert name="footernav">{footernav}</ui:insert>
+                        <li>Template by <a target="_blank" href="http://www.os-templates.com/" title="Open Source Templates">OS Templates</a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </h:body>
+</html>

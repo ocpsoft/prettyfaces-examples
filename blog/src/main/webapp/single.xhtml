@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://java.sun.com/jsf/composite/blog"
+      xmlns:t="http://java.sun.com/jsf/composite/com-ocpsoft-templates/corporate/components">
+
+	<f:metadata>
+		<f:viewParam name="post" value="#{post}" />
+	</f:metadata>
+
+    <ui:composition template="/resources/blog/template.xhtml">
+
+        <ui:define name="subheader">
+        	<h:messages />
+        </ui:define>
+
+        <ui:define name="content">
+            <b:post post="#{entries.getSingleContent(post)}" single="true"/>
+            
+            <p/>
+            <h4>Comments:</h4>
+            <ul>
+            <ui:repeat var="c" value="#{comments.getAll(entries.getSingleContent(post))}">
+            	<li>#{c.text}</li>
+            </ui:repeat>
+            </ul>
+            <h:form>
+            	<f:validateBean>
+	            	Name*: <h:inputText value="#{comments.comment.name}" /><br/>
+	            	Email*: <h:inputText value="#{comments.comment.email}" /><br/>
+	            	Website: <h:inputText value="#{comments.comment.url}" /><br/>
+	            	
+	            	<h:inputTextarea value="#{comments.comment.text}"/>
+	            	
+	            	<br/>(*=required)<br/>
+	            	<h:commandButton value="submit" action="#{comments.addComment(entries.getSingleContent(post), comments.comment)}" />
+            	</f:validateBean>
+            </h:form>
+        </ui:define>
+
+    </ui:composition>
+</html>
+

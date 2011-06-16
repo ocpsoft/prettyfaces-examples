@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:s="http://jboss.org/seam/faces"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://java.sun.com/jsf/composite/blog"
+      xmlns:t="http://java.sun.com/jsf/composite/com-ocpsoft-templates/corporate/components">
+
+    <ui:composition template="/resources/blog/template.xhtml">
+
+        <ui:define name="subheader">
+        	<h:messages />
+        </ui:define>
+
+        <ui:define name="content">
+        	<h1>Enter Address:</h1>
+        	<h:form id="form">
+       			
+        		Title:
+        		<h:inputText id="city" value="#{submitBean.city}" /><br/>
+        		Author:
+        		<h:inputText id="state" value="#{submitBean.state}" /><br/>
+        		Zip:
+        		<h:inputText id="zip" value="#{submitBean.zip}" /><br/>
+        		<p/>
+        		<h:commandButton id="submit" value="Submit" action="#{submitBean.submitPost}" />
+        		
+       			<s:validateForm validatorId="postValidator" />
+        	</h:form>
+        </ui:define>
+
+    </ui:composition>
+</html>
+

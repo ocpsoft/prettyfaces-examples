@@ -1,0 +1,39 @@
+<pretty-config xmlns="http://ocpsoft.com/prettyfaces/2.0.4"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://ocpsoft.com/prettyfaces/2.0.4
+http://ocpsoft.com/xml/ns/prettyfaces/ocpsoft-pretty-faces-2.0.4.xsd">
+
+   <rewrite match="(?i)^(.*);jsessionid=\w+(.*)" substitute="$1$2"
+      redirect="301" />
+
+   <url-mapping id="home">
+      <pattern value="/" />
+      <view-id>/faces/index.xhtml</view-id>
+   </url-mapping>
+
+   <url-mapping id="single">
+      <pattern value="/entry/#{post}/" />
+      <view-id>/faces/single.xhtml</view-id>
+   </url-mapping>
+
+   <url-mapping id="authors">
+      <pattern value="/authors/" />
+      <view-id>/faces/authors.xhtml</view-id>
+   </url-mapping>
+
+   <url-mapping id="archived">
+      <pattern value="/archives/#{/\d{4}/ year:year}/#{/\d{2}/ month}/" />
+      <view-id>/faces/index.xhtml</view-id>
+   </url-mapping>
+
+   <url-mapping id="submit">
+      <pattern value="/submit/" />
+      <view-id>/faces/submit.xhtml</view-id>
+   </url-mapping>
+
+   <url-mapping id="credits">
+      <pattern value="/credits/" />
+      <view-id>/faces/credits.xhtml</view-id>
+   </url-mapping>
+
+</pretty-config>

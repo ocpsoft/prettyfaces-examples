@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://java.sun.com/jsf/composite/blog"
+	xmlns:t="http://java.sun.com/jsf/composite/com-ocpsoft-templates/corporate/components">
+
+<ui:composition template="/resources/blog/template.xhtml">
+
+	<ui:define name="subheader">
+		
+	</ui:define>
+
+	<ui:define name="content">
+		<h:link outcome="submit" value="Add a Post" />
+		
+		#{year}
+		#{request.getParameter('year')}
+
+		<h4><h:messages /></h4>
+		<ui:repeat value="#{entries.indexContent}" var="post">
+			<b:post post="#{post}" /><br/><br/>
+		</ui:repeat>
+	</ui:define>
+
+</ui:composition>
+</html>
+

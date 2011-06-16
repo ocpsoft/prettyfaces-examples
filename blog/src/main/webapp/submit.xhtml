@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:s="http://jboss.org/seam/faces"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://java.sun.com/jsf/composite/blog"
+      xmlns:t="http://java.sun.com/jsf/composite/com-ocpsoft-templates/corporate/components">
+
+    <ui:composition template="/resources/blog/template.xhtml">
+
+        <ui:define name="subheader">
+        	<h:messages />
+        </ui:define>
+
+        <ui:define name="content">
+        	<h1>Add an Entry:</h1>
+        	<h:form id="form">
+       			
+       			<table style="border: none;">
+       			
+       			<tr style="border: none;">
+       				<td style="border: none;">Title:</td>
+       				<td style="border: none;"><h:inputText id="title" value="#{entries.content.title}" disabled="#{empty authors.all}"/></td>
+       			</tr>
+       			
+       			<tr style="border: none;">
+       				<td style="border: none;">Author:</td>
+       				<td style="border: none;">
+       					<h:selectOneMenu id="author" value="#{entries.content.author}" rendered="#{not empty authors.all}">
+		        			<f:selectItems value="#{authors.all}" var="a" itemLabel="#{a.name}" itemValue="#{a}"/>
+		        		</h:selectOneMenu>
+		        		<h:link outcome="/authors.xhtml" value="Add an Author" rendered="#{empty authors.all}"/><br/>
+        			</td>
+       			</tr>
+       			
+       			<tr style="border: none;">
+       				<td style="border: none;">Content:</td>
+       				<td style="border: none;"><h:inputTextarea id="zip" value="#{entries.content.body}" cols="300" rows="20" disabled="#{empty authors.all}"/></td>
+       			</tr>
+       			
+       			</table>
+        		
+        		<h:commandButton id="submit" value="Submit" action="#{entries.newEntry(entries.content.author, entries.content)}" />
+
+        	</h:form>
+        </ui:define>
+
+    </ui:composition>
+</html>
+
