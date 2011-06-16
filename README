@@ -1,6 +1,14 @@
-To run this example:
+To run these examples:
 
-1. Open the project in your IDE of choice, or build using Maven.
+With IDE:
+1. Open the project in your IDE of choice
 2. Deploy to the JBoss AS6 application server: http://jboss.org/jbossas/downloads
 3. Access: http://localhost:8080/blog
+4. Play!
+
+
+With Maven:
+1. cd prettyfaces-examples/
+2. mvn clean package
+3. deploy blog.war or barcode.war to the JBoss AS6 application server.
 4. Play!
