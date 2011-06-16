@@ -1,0 +1,6 @@
+To run this example:
+
+1. Open the project in your IDE of choice, or build using Maven.
+2. Deploy to the JBoss AS6 application server: http://jboss.org/jbossas/downloads
+3. Access: http://localhost:8080/blog
+4. Play!
