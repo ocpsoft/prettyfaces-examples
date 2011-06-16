@@ -30,18 +30,22 @@
     </cc:interface>
 
     <cc:implementation>
-        <div class="post">
+        <div class="post" style="#{ cc.attrs.single ? '' : 'border-bottom: dashed 1px; padding-bottom: 20px;'}">
             <div class="title">
-            	<p>Written by: <h:outputText value="#{cc.attrs.post.author}" /> on 
+                <h1 style="#{ cc.attrs.single ? '' : 'border:none; padding-bottom: 0px; margin-bottom: 0px;'}"><h:link outcome="single" disabled="#{cc.attrs.single}">
+                        <f:param name="post" value="#{cc.attrs.post.title}" />
+                        <h:outputText value="#{cc.attrs.post.title}" /></h:link></h1>
+            
+            <div class="credits" style="opacity: 0.6; margin-bottom: 10px;">
+            	Written by: <h:outputText value="#{cc.attrs.post.author}" /> on 
 	                <h:outputText value="#{cc.attrs.post.postedOn}">
 	                	<f:convertDateTime timeStyle="medium"/>
 	                </h:outputText>
-	            </p>
-                <h1><h:link outcome="single" disabled="#{cc.attrs.single}">
-                        <f:param name="post" value="#{cc.attrs.post.title}" />
-                        <h:outputText value="#{cc.attrs.post.title}" /></h:link></h1>
-                
             </div>
+            
+            </div>
+            
+            
             <div class="message">
                 <h:outputText value="#{cc.attrs.post.body}" escape="false" />
             </div>

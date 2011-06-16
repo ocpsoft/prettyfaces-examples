@@ -15,8 +15,7 @@
 	<ui:define name="content">
 		<h:link outcome="submit" value="Add an Entry" />
 		
-		#{year}
-		#{request.getParameter('year')}
+		#{request.getParameter('month')}#{request.getParameter('year')}
 
 		<h4><h:messages /></h4>
 		<ui:repeat value="#{entries.indexContent}" var="post">
