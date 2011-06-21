@@ -9,13 +9,19 @@
 <ui:composition template="/resources/blog/template.xhtml">
 
 	<ui:define name="subheader">
-		
+
+		<center>
+			<h1>
+				#{year}
+				#{request.getParameter('month')}
+			</h1>
+		</center>
+				
 	</ui:define>
 
 	<ui:define name="content">
-		<h:link outcome="submit" value="Add an Entry" />
 		
-		#{request.getParameter('month')}#{request.getParameter('year')}
+		<h:link outcome="submit" value="Add an Entry" />
 
 		<h4><h:messages /></h4>
 		<ui:repeat value="#{entries.indexContent}" var="post">

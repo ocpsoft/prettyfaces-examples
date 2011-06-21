@@ -1,36 +1,36 @@
-<pretty-config xmlns="http://ocpsoft.com/prettyfaces/2.0.4"
+<pretty-config xmlns="http://ocpsoft.com/prettyfaces/3.2.1"
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://ocpsoft.com/prettyfaces/2.0.4
-http://ocpsoft.com/xml/ns/prettyfaces/ocpsoft-pretty-faces-2.0.4.xsd">
+   xsi:schemaLocation="http://ocpsoft.com/prettyfaces/3.2.1
+http://ocpsoft.com/xml/ns/prettyfaces/ocpsoft-pretty-faces-3.2.1.xsd">
 
    <url-mapping id="home">
       <pattern value="/" />
-      <view-id>/faces/index.xhtml</view-id>
+      <view-id value="/faces/index.xhtml" />
    </url-mapping>
 
    <url-mapping id="single">
       <pattern value="/entry/#{post}/" />
-      <view-id>/faces/single.xhtml</view-id>
+      <view-id value="/faces/single.xhtml" />
    </url-mapping>
 
    <url-mapping id="submit">
       <pattern value="/submit/" />
-      <view-id>/faces/submit.xhtml</view-id>
+      <view-id value="/faces/submit.xhtml" />
    </url-mapping>
 
    <url-mapping id="authors">
       <pattern value="/authors/" />
-      <view-id>/faces/authors.xhtml</view-id>
+      <view-id value="/faces/authors.xhtml" />
    </url-mapping>
 
    <url-mapping id="credits">
       <pattern value="/credits/" />
-      <view-id>/faces/credits.xhtml</view-id>
+      <view-id value="/faces/credits.xhtml" />
    </url-mapping>
 
    <url-mapping id="archived">
-      <pattern value="/archives/#{/\d{4}/ year:year}/#{/\d{2}/ month}/" />
-      <view-id>/faces/index.xhtml</view-id>
+      <pattern value="/archives/#{/\\d{4}/ year:year}/#{/\\d{2}/ month}/" />
+      <view-id value="/faces/index.xhtml" />
    </url-mapping>
 
 </pretty-config>
